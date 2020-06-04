@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Монастырь Косиерево</title>
+    <link rel="shortcut icon" href="/img/logo-b.png" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header class="mb-5">
+        <nav class="navbar navbar-dark navbar-expand-md">
+            <div class="container flex-nowrap">
+
+                <div class="navbar-nav flex-grow-1">
+                    <div class="d-flex">
+                        <a class="logo mr-3" href="/">
+                            <img class="img-fluid" src="/img/logo-w.png" alt="">
+                        </a>
+                        <a class="flag mr-2" href="/">
+                            <img class="img-fluid" src="/img/flag_of_russia.svg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="ml-auto">
+                        <a class="nav-item nav-link dropdown-toggle text-right" data-toggle="collapse" href="#collapseKosijerevo" role="button" aria-expanded="false" aria-controls="collapseKosijerevo">
+                            Монастырь Косиерево
+                        </a>
+                        <div class="collapse my-collapse" id="collapseKosijerevo">
+                            <div class="card card-body px-0 bg-transparent border-0">
+                                <a class="nav-link" href="/ru/kosijerevo/igumen-i-monah">Игумен и монах</a>
+                                <a class="nav-link" href="/ru/kosijerevo/crkva">Церковь Успения Пресвятой Богородицы</a>
+                                <a class="nav-link" href="/ru/kosijerevo/kapela">Часовня святого апостола Луки</a>
+                                <a class="nav-link" href="/ru/kosijerevo/istorija">История</a>
+                                <a class="nav-link" href="/ru/kosijerevo/dogadaji">События</a>
+                                <a class="nav-link" href="/ru/kosijerevo/galereja">Галерея</a>
+                                <a class="nav-link" href="/ru/kosijerevo/kontakt">Контакты</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a class="nav-item nav-link dropdown-toggle text-right" data-toggle="collapse" href="#collapseSomina" role="button" aria-expanded="false" aria-controls="collapseSomina">
+                            Монастырь Сомина
+                        </a>
+                        <div class="collapse my-collapse" id="collapseSomina">
+                            <div class="card card-body px-0 bg-transparent border-0">
+                                <a class="nav-link" href="/ru/somina/igumen-i-monahinie">Игумен и монахиньи</a>
+                                <a class="nav-link" href="/ru/somina/crkva">Церковь Преображения Господня</a>
+                                <a class="nav-link" href="/ru/somina/istorija">История</a>
+                                <a class="nav-link" href="/ru/somina/dogadaji">События</a>
+                                <a class="nav-link" href="/ru/somina/galereja">Галерея</a>
+                                <a class="nav-link" href="/ru/somina/kontakt">Контакты</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container-fluid index-pic"></div>
+        <div class="container card card-body">
+            {{ content }}
+        </div>
+    </main>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/js/jquery.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script>
+        jQuery('.nav-link').click(function (e) {
+            jQuery('.my-collapse').collapse('hide');
+        });
+    </script>
+</body>
+
+</html>
