@@ -1,7 +1,6 @@
-from flask import render_template, send_from_directory
+from flask import current_app, render_template, request, send_from_directory
 
-from . import app
-from .db import get_db
+from . import app, db
 
 
 @app.route('/css/<path:filename>')
@@ -25,24 +24,30 @@ def vendor(filename):
 
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+@app.route('/<string:current_lang>')
+def index_handler(current_lang=None):
+    if not current_lang:
+        current_lang = current_app.config.get('INDEX_LANG', 'me')
+    article = db.get_index_article(current_lang)
+    switch_url = '/me'
+    if current_lang == 'me':
+        switch_url = '/ru'
+    return render_template('index.html', current_lang=current_lang, article=article, switch_url=switch_url)
 
 
 @app.route('/adm')
 def adm():
-    pages = get_db().cursor().execute(
-        'SELECT id, url FROM article'
-    ).fetchall()
-    return render_template('adm/index.html', pages=pages)
+    me_pages = db.get_me_pages()
+    ru_pages = db.get_ru_pages()
+    return render_template('adm/index.html', me_pages=me_pages, ru_pages=ru_pages)
 
 
-@app.route('/adm/<int:article_id>')
+@app.route('/adm/<int:article_id>', methods=['GET', 'POST'])
 def adm_article_id(article_id):
-    article = get_db().cursor().execute(
-        'SELECT * FROM article WHERE id=:article_id',
-        {
-            'article_id': article_id,
-        }
-    ).fetchone()
-    return render_template('adm/index.html', article=article)
+    if request.method == 'POST':
+        text = request.form['article_text']
+        db.save_article(article_id, text)
+    me_pages = db.get_me_pages()
+    ru_pages = db.get_ru_pages()
+    art = db.get_article(article_id)
+    return render_template('adm/index.html', me_pages=me_pages, ru_pages=ru_pages, article=art)

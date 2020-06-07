@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, render_template, send_from_directory
 
-from . import db, ru  # , me, ru
+from . import db, me, ru
 
 app = Flask(__name__, instance_relative_config=True)
 
@@ -10,8 +10,9 @@ app = Flask(__name__, instance_relative_config=True)
 def create_app(test_config=None):
     # create and configure the app
     app.config.from_mapping(
-        SECRET_KEY='dev',
+        SECRET_KEY='qwdhwqd821',
         DATABASE=os.path.join(app.instance_path, 'vlado.sqlite'),
+        INDEX_LANG='me',
     )
 
     if test_config is None:
@@ -31,9 +32,8 @@ def create_app(test_config=None):
 
     from . import routes
 
-    # app.register_blueprint(auth.bp)
     app.register_blueprint(ru.bp)
-    # app.register_blueprint(me.bp)
+    app.register_blueprint(me.bp)
 
     # app.add_url_rule('/', endpoint="index")
 

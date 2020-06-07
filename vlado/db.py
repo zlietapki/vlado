@@ -51,3 +51,59 @@ def get_db():
         g.db.row_factory = sqlite3.Row
 
     return g.db
+
+
+def get_me_pages():
+    me_pages = get_db().cursor().execute(
+        'SELECT id, url FROM article WHERE lang="me"'
+    ).fetchall()
+    return me_pages
+
+
+def get_ru_pages():
+    ru_pages = get_db().cursor().execute(
+        'SELECT id, url FROM article WHERE lang="ru"'
+    ).fetchall()
+    return ru_pages
+
+
+def get_article(article_id):
+    article = get_db().cursor().execute(
+        'SELECT * FROM article WHERE id=:article_id',
+        {
+            'article_id': article_id,
+        }
+    ).fetchone()
+    return article
+
+
+def get_index_article(lang):
+    article = get_db().cursor().execute(
+        'SELECT * FROM article WHERE url=:article_url',
+        {
+            'article_url': '/' + lang,
+        }
+    ).fetchone()
+    return article
+
+
+def article_by_url(article_url):
+    article = get_db().cursor().execute(
+        'SELECT * FROM article WHERE url=:article_url',
+        {
+            'article_url': article_url,
+        }
+    ).fetchone()
+    return article
+
+
+def save_article(article_id, text):
+    get_db().cursor().execute(
+        'UPDATE article SET text=:text WHERE id=:id',
+        {
+            'text': text,
+            'id': article_id,
+        }
+    )
+    get_db().commit()
+    return True
