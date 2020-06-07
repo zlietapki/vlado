@@ -31,3 +31,7 @@ body {
     left: 0;
     z-index: -1;
 }
+
+p {
+    text-indent: 1.5em;
+}
