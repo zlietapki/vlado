@@ -87,7 +87,7 @@ def get_index_article(lang):
     return article
 
 
-def article_by_url(article_url):
+def get_article_by_url(article_url):
     article = get_db().cursor().execute(
         'SELECT * FROM article WHERE url=:article_url',
         {

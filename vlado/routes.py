@@ -36,18 +36,19 @@ def index_handler(current_lang=None):
 
 
 @app.route('/adm')
-def adm():
+def adm_handler():
     me_pages = db.get_me_pages()
     ru_pages = db.get_ru_pages()
-    return render_template('adm/index.html', me_pages=me_pages, ru_pages=ru_pages)
+    article = db.get_article_by_url('/me')
+    return render_template('adm/index.html', me_pages=me_pages, ru_pages=ru_pages, article=article)
 
 
 @app.route('/adm/<int:article_id>', methods=['GET', 'POST'])
-def adm_article_id(article_id):
+def adm_article_id_handler(article_id):
     if request.method == 'POST':
         text = request.form['article_text']
         db.save_article(article_id, text)
     me_pages = db.get_me_pages()
     ru_pages = db.get_ru_pages()
-    art = db.get_article(article_id)
-    return render_template('adm/index.html', me_pages=me_pages, ru_pages=ru_pages, article=art)
+    article = db.get_article(article_id)
+    return render_template('adm/index.html', me_pages=me_pages, ru_pages=ru_pages, article=article)

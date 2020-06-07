@@ -4,7 +4,7 @@ After=syslog.target
 
 [Service]
 WorkingDirectory=/home/asd/workspace/vlado.lan
-ExecStart=/usr/bin/uwsgi --ini wsgi.ini
+ExecStart=/usr/bin/uwsgi --ini wsgi_dev.ini
 RuntimeDirectory=vlado
 User=www-data
 Group=www-data
