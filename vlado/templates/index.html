@@ -25,9 +25,9 @@
                             <img class="img-fluid" src="/img/logo-w.png" alt="">
                         </a>
                         {% if current_lang == 'ru' %}
-                        <a class="flag mr-2" href="{{ switch_url }}"><img class="img-fluid" src="/img/flag_of_serbia.svg" alt=""></a>
-                        {% else %}
                         <a class="flag mr-2" href="{{ switch_url }}"><img class="img-fluid" src="/img/flag_of_russia.svg" alt=""></a>
+                        {% else %}
+                        <a class="flag mr-2" href="{{ switch_url }}"><img class="img-fluid" src="/img/flag_of_serbia.svg" alt=""></a>
                         {% endif %}
                     </div>
                     {% if current_lang == 'ru' %}
