@@ -87,11 +87,11 @@ def get_index_article(lang):
     return article
 
 
-def get_article_by_url(article_url):
+def get_article_by_url(url):
     article = get_db().cursor().execute(
-        'SELECT * FROM article WHERE url=:article_url',
+        'SELECT * FROM article WHERE url=:url',
         {
-            'article_url': article_url,
+            'url': url,
         }
     ).fetchone()
     return article

@@ -1,6 +1,7 @@
 from flask import current_app, render_template, request, send_from_directory
 
 from . import app, db
+from .common import get_switch_url
 
 
 @app.route('/css/<path:filename>')
@@ -24,15 +25,16 @@ def vendor(filename):
 
 
 @app.route('/')
-@app.route('/<string:current_lang>')
-def index_handler(current_lang=None):
-    if not current_lang:
-        current_lang = current_app.config.get('INDEX_LANG', 'me')
-    article = db.get_index_article(current_lang)
-    switch_url = '/me'
-    if current_lang == 'me':
-        switch_url = '/ru'
-    return render_template('index.html', current_lang=current_lang, article=article, switch_url=switch_url)
+@app.route('/<string:lang>')
+@app.route('/<string:lang>/<path:_>')
+def index_handler(lang=None, _=None):
+    url = request.path
+    if not lang:
+        lang = current_app.config.get('INDEX_LANG', 'me')
+        url = '/' + lang
+    article = db.get_article_by_url(url)
+    switch_url = get_switch_url(url)
+    return render_template('page.html', lang=lang, switch_url=switch_url, article=article)
 
 
 @app.route('/adm')

@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, render_template, send_from_directory
 
-from . import db, me, ru
+from . import db
 
 app = Flask(__name__, instance_relative_config=True)
 
@@ -32,9 +32,6 @@ def create_app(test_config=None):
 
     from . import routes
 
-    app.register_blueprint(ru.bp)
-    app.register_blueprint(me.bp)
-
-    # app.add_url_rule('/', endpoint="index")
+    app.add_url_rule('/', endpoint="index_handler")
 
     return app

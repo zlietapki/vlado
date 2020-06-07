@@ -24,13 +24,9 @@
                         <a class="logo mr-3" href="/">
                             <img class="img-fluid" src="/img/logo-w.png" alt="">
                         </a>
-                        {% if current_lang == 'ru' %}
-                        <a class="flag mr-2" href="{{ switch_url }}"><img class="img-fluid" src="/img/flag_of_russia.svg" alt=""></a>
-                        {% else %}
-                        <a class="flag mr-2" href="{{ switch_url }}"><img class="img-fluid" src="/img/flag_of_serbia.svg" alt=""></a>
-                        {% endif %}
+                        <a class="flag mr-2" href="{{ switch_url }}"><img class="img-fluid" src="/img/flag_{{ lang }}.svg" alt=""></a>
                     </div>
-                    {% if current_lang == 'ru' %}
+                    {% if lang == 'ru' %}
                     <div class="ml-auto">
                         <a class="nav-item nav-link dropdown-toggle text-right" data-toggle="collapse" href="#collapseKosijerevo" role="button" aria-expanded="false" aria-controls="collapseKosijerevo">
                             Монастырь Косиерево
