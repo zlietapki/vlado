@@ -1,0 +1,19 @@
+[Unit]
+Description=uWSGI Vlado
+After=syslog.target
+
+[Service]
+WorkingDirectory=/home/zloy/workspace/vlado
+ExecStart=/usr/bin/uwsgi --ini wsgi.ini
+RuntimeDirectory=vlado
+User=www-data
+Group=www-data
+
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
