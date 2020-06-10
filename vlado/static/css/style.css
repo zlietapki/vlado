@@ -1,10 +1,11 @@
 body {
-    background-color: #3f647a;
+    background: url("/static/img/P_20190928_180255_1.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.logo {
-    width: 35px;
-}
 
 .navbar {
     background-color: rgba(20, 64, 91, 0.85);
@@ -21,15 +22,31 @@ body {
     font-size: 1.5rem;
 }
 
-.index-pic {
-    height: 100vh;
-    background-image: url("/static/img/Rozhdenie1.jpg");
-    background-size: cover;
-    background-position: 32%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
+.nav-kos {
+    flex-grow: 1;
+    flex-basis: 0%;
+    margin-left: 120px;
+}
+.nav-somina {
+    flex-basis: 0%;
+    flex-grow: 1;
+}
+
+
+@media (max-width: 800px) {
+    .nav-somina {
+        margin-left: 120px;
+    }
+}
+
+@media (max-width: 420px) {
+    .nav-kos {
+        margin-left: 0px;
+        margin-top: 50px;
+    }
+    .nav-somina {
+        margin-left: 0px;
+    }
 }
 
 p {

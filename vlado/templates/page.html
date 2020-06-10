@@ -15,24 +15,25 @@
 </head>
 
 <body>
-    <header class="mb-5">
-        <nav class="navbar navbar-dark navbar-expand-md">
-            <div class="container flex-nowrap">
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-md mb-3 mb-xl-5">
+            <div class="container">
 
-                <div class="navbar-nav flex-grow-1">
-                    <div class="d-flex">
+                <div class="navbar-nav flex-row w-100 flex-wrap position-relative">
+                    <div class="d-flex nav-logo position-absolute">
                         <a class="logo mr-3" href="/">
                             <img class="img-fluid" src="/img/logo-w.png" alt="">
                         </a>
                         <a class="flag mr-2" href="{{ switch_url }}"><img class="img-fluid" src="/img/flag_{{ lang }}.svg" alt=""></a>
                     </div>
+
                     {% if lang == 'ru' %}
-                    <div class="ml-auto">
+                    <div class="nav-kos">
                         <a class="nav-item nav-link dropdown-toggle text-right" data-toggle="collapse" href="#collapseKosijerevo" role="button" aria-expanded="false" aria-controls="collapseKosijerevo">
                             Монастырь Косиерево
                         </a>
                         <div class="collapse my-collapse" id="collapseKosijerevo">
-                            <div class="card card-body px-0 bg-transparent border-0">
+                            <div class="card card-body px-0 bg-transparent border-0 text-right">
                                 <a class="nav-link" href="/ru/kosijerevo/igumen-i-monah">Игумен и монах</a>
                                 <a class="nav-link" href="/ru/kosijerevo/crkva">Церковь Успения Пресвятой Богородицы</a>
                                 <a class="nav-link" href="/ru/kosijerevo/kapela">Часовня святого апостола Луки</a>
@@ -43,12 +44,12 @@
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div class="nav-somina">
                         <a class="nav-item nav-link dropdown-toggle text-right" data-toggle="collapse" href="#collapseSomina" role="button" aria-expanded="false" aria-controls="collapseSomina">
                             Монастырь Сомина
                         </a>
                         <div class="collapse my-collapse" id="collapseSomina">
-                            <div class="card card-body px-0 bg-transparent border-0">
+                            <div class="card card-body px-0 bg-transparent border-0 text-right">
                                 <a class="nav-link" href="/ru/somina/igumen-i-monahinie">Игумен и монахиньи</a>
                                 <a class="nav-link" href="/ru/somina/crkva">Церковь Преображения Господня</a>
                                 <a class="nav-link" href="/ru/somina/istorija">История</a>
@@ -59,12 +60,12 @@
                         </div>
                     </div>
                     {% else %}
-                    <div class="ml-auto">
+                    <div class="nav-kos">
                         <a class="nav-item nav-link dropdown-toggle text-right" data-toggle="collapse" href="#collapseKosijerevo" role="button" aria-expanded="false" aria-controls="collapseKosijerevo">
                             Манастир Косиjерево
                         </a>
                         <div class="collapse my-collapse" id="collapseKosijerevo">
-                            <div class="card card-body px-0 bg-transparent border-0">
+                            <div class="card card-body px-0 bg-transparent border-0 text-right">
                                 <a class="nav-link" href="/me/kosijerevo/igumen-i-monah">Игуман и монах</a>
                                 <a class="nav-link" href="/me/kosijerevo/crkva">Црква Рођења Пресвете Богородице</a>
                                 <a class="nav-link" href="/me/kosijerevo/kapela">Капела Светог апостола Луке</a>
@@ -75,12 +76,12 @@
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div class="nav-somina">
                         <a class="nav-item nav-link dropdown-toggle text-right" data-toggle="collapse" href="#collapseSomina" role="button" aria-expanded="false" aria-controls="collapseSomina">
                             Манастир Сомина
                         </a>
                         <div class="collapse my-collapse" id="collapseSomina">
-                            <div class="card card-body px-0 bg-transparent border-0">
+                            <div class="card card-body px-0 bg-transparent border-0 text-right">
                                 <a class="nav-link" href="/me/somina/igumen-i-monahinie">Игуман и монахиње</a>
                                 <a class="nav-link" href="/me/somina/crkva">Црква Преображења Господа</a>
                                 <a class="nav-link" href="/me/somina/istorija">Историjа</a>
@@ -94,15 +95,20 @@
 
                 </div>
 
-            </div>
+            </div> <!-- container -->
         </nav>
     </header>
 
-    <main>
-        <div class="container-fluid index-pic"></div>
-        {% if article['text'] %}
-        <div class="container card card-body">
-            {{ article['text'] | safe }}
+    <main class="mb-3 mb-xl-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    {% if article['text'] %}
+                    <div class="container card card-body">
+                        {{ article['text'] | safe }}
+                    </div>
+                </div>
+            </div>
         </div>
         {% endif %}
     </main>
