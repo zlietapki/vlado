@@ -1,4 +1,6 @@
+import os.path
 import re
+from os import listdir
 
 from flask import current_app
 
@@ -15,3 +17,12 @@ def get_switch_url(url):
     else:
         switch_url = re.sub(r'^/\w+', '/me', url, count=1)
     return switch_url
+
+
+def get_gallery_imgs(gallery_id):
+    gallery_path = 'vlado/static/img/gallery_' + gallery_id
+    if not os.path.exists(gallery_path):
+        os.mkdir(gallery_path)
+    web_path = '/img/gallery_' + gallery_id + '/'
+    imgs = [web_path + img for img in listdir(gallery_path)]
+    return imgs
