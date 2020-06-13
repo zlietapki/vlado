@@ -40,12 +40,22 @@ def index_handler(lang=None, _=None):
     return render_template('page.html', lang=lang, switch_url=switch_url, article=article)
 
 
+@app.route('/me/kosijerevo/galereja')
+def gallery_handler():
+    me_pages = db.get_me_pages()
+    ru_pages = db.get_ru_pages()
+    # article = db.get_article_by_url('/me')
+
+    images = common.get_gallery_imgs(27)
+    return render_template('gallery.html', me_pages=me_pages, ru_pages=ru_pages, images=images)
+
+
 @app.route('/adm')
 def adm_index_handler():
     me_pages = db.get_me_pages()
     ru_pages = db.get_ru_pages()
     article = db.get_article_by_url('/me')
-    return render_template('adm/index.html', me_pages=me_pages, ru_pages=ru_pages, article=article)
+    return render_template('adm/page.html', me_pages=me_pages, ru_pages=ru_pages, article=article)
 
 
 @app.route('/adm/<int:article_id>', methods=['GET', 'POST'])
@@ -56,7 +66,7 @@ def adm_article_id_handler(article_id):
     me_pages = db.get_me_pages()
     ru_pages = db.get_ru_pages()
     article = db.get_article(article_id)
-    return render_template('adm/index.html', me_pages=me_pages, ru_pages=ru_pages, article=article)
+    return render_template('adm/page.html', me_pages=me_pages, ru_pages=ru_pages, article=article)
 
 
 @app.route('/adm/13', methods=['GET', 'POST'])

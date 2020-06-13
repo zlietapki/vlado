@@ -20,9 +20,9 @@ def get_switch_url(url):
 
 
 def get_gallery_imgs(gallery_id):
-    gallery_path = 'vlado/static/img/gallery_' + gallery_id
+    gallery_path = f'vlado/static/img/gallery_{gallery_id}'
     if not os.path.exists(gallery_path):
         os.mkdir(gallery_path)
-    web_path = '/img/gallery_' + gallery_id + '/'
+    web_path = f'/img/gallery_{gallery_id}/'
     imgs = [web_path + img for img in listdir(gallery_path)]
     return imgs

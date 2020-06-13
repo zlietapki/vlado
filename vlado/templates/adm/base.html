@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/css/admin.css" rel="stylesheet">
     <style>
         @media (min-width: 768px) {
             .sidebar {
@@ -89,42 +90,7 @@
 
             <!-- Main Content -->
             <div id="content">
-
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <h1 class="h3 mb-0 text-gray-800">Kosijerevo</h1>
-                </nav>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-
-                    <div class="row">
-                        <div class="col-lg-6 mb-4">
-                            <div class="card shadow mb-4">
-
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">{{ article['url'] }}</h6>
-                                </div>
-
-                                <div class="card-body">
-                                    <form method="post" action="/adm/{{ article['id'] }}">
-                                        <textarea id="mytextarea" name="article_text">{{ article['text'] }}</textarea>
-                                        <button name="submitbtn">Save</button>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
+                {% block content %}{% endblock %}
             </div>
             <!-- End of Main Content -->
 
@@ -132,7 +98,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Vlado 2020</span>
+                        <span>Copyright &copy; andrey.zloy@gmail.com 2020</span>
                     </div>
                 </div>
             </footer>

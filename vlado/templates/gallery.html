@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- 8 4
+3 6 3
+6 6
+4 4 4
+3 6 3 -->
+{% set aos_class = [
+    ('col-lg-8', "", "zoom-in"),
+    ('col-lg-4', "100", "zoom-in"),
+
+    ('col-lg-3', "", "flip-up"),
+    ('col-lg-6', "200", "flip-up"),
+    ('col-lg-3', "300", "flip-up"),
+
+    ('col-lg-6', "", "zoom-in-up"),
+    ('col-lg-6', "100", "zoom-in-up"),
+
+    ('col-lg-4', "", "zoom-out"),
+    ('col-lg-4', "100", "zoom-out"),
+    ('col-lg-4', "200", "zoom-out"),
+
+    ('col-lg-3', "", "fade-up"),
+    ('col-lg-6', "100", "fade-up"),
+    ('col-lg-3', "200", "fade-up"),
+] %}
+<article class="container card card-body gallery">
+    <div class="row">
+        {% for img in images %}
+        {%  set i = loop.index0 % aos_class|length %}
+        {%  if aos_class[i][1] %}
+        {%      set data_aos_delay = 'data-aos-delay="'|safe + aos_class[i][1] + '"'|safe %}
+        {%  endif %}
+        <div class="col-6 col-md-6 {{ aos_class[i][0] }} aos-init aos-animate" data-aos="{{ aos_class[i][2] }}" {{ data_aos_delay }}>
+            <a class="d-block photo-item" href="single.html">
+                <img class="img-fluid" src="{{ img }}" alt="Image">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</article>
+{% endblock %}

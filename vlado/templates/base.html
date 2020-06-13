@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Монастырь Косиерево</title>
+    <link rel="shortcut icon" href="/img/logo-b.png" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/aos.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-md mb-3 mb-xl-5">
+            <div class="container">
+
+                <div class="navbar-nav flex-row w-100 flex-wrap position-relative">
+                    <div class="d-flex nav-logo position-absolute">
+                        <a class="logo mr-3" href="/">
+                            <img class="img-fluid" src="/img/logo-w.png" alt="">
+                        </a>
+                        <a class="flag mr-2" href="{{ switch_url }}"><img class="img-fluid" src="/img/flag_{{ lang }}.svg" alt=""></a>
+                    </div>
+
+                    {% if lang == 'ru' %}
+                    <div class="nav-kos">
+                        <a class="nav-item nav-link dropdown-toggle text-right" data-toggle="collapse" href="#collapseKosijerevo" role="button" aria-expanded="false" aria-controls="collapseKosijerevo">
+                            Монастырь Косиерево
+                        </a>
+                        <div class="collapse my-collapse" id="collapseKosijerevo">
+                            <div class="card card-body px-0 bg-transparent border-0 text-right">
+                                <a class="nav-link" href="/ru/kosijerevo/igumen-i-monah">Игумен и монах</a>
+                                <a class="nav-link" href="/ru/kosijerevo/crkva">Церковь Успения Пресвятой Богородицы</a>
+                                <a class="nav-link" href="/ru/kosijerevo/kapela">Часовня святого апостола Луки</a>
+                                <a class="nav-link" href="/ru/kosijerevo/istorija">История</a>
+                                <a class="nav-link" href="/ru/kosijerevo/dogadaji">События</a>
+                                <a class="nav-link" href="/ru/kosijerevo/galereja">Галерея</a>
+                                <a class="nav-link" href="/ru/kosijerevo/kontakt">Контакты</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-somina">
+                        <a class="nav-item nav-link dropdown-toggle text-right" data-toggle="collapse" href="#collapseSomina" role="button" aria-expanded="false" aria-controls="collapseSomina">
+                            Монастырь Сомина
+                        </a>
+                        <div class="collapse my-collapse" id="collapseSomina">
+                            <div class="card card-body px-0 bg-transparent border-0 text-right">
+                                <a class="nav-link" href="/ru/somina/igumen-i-monahinie">Игумен и монахиньи</a>
+                                <a class="nav-link" href="/ru/somina/crkva">Церковь Преображения Господня</a>
+                                <a class="nav-link" href="/ru/somina/istorija">История</a>
+                                <a class="nav-link" href="/ru/somina/dogadaji">События</a>
+                                <a class="nav-link" href="/ru/somina/galereja">Галерея</a>
+                                <a class="nav-link" href="/ru/somina/kontakt">Контакты</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="nav-kos">
+                        <a class="nav-item nav-link dropdown-toggle text-right" data-toggle="collapse" href="#collapseKosijerevo" role="button" aria-expanded="false" aria-controls="collapseKosijerevo">
+                            Манастир Косиjерево
+                        </a>
+                        <div class="collapse my-collapse" id="collapseKosijerevo">
+                            <div class="card card-body px-0 bg-transparent border-0 text-right">
+                                <a class="nav-link" href="/me/kosijerevo/igumen-i-monah">Игуман и монах</a>
+                                <a class="nav-link" href="/me/kosijerevo/crkva">Црква Рођења Пресвете Богородице</a>
+                                <a class="nav-link" href="/me/kosijerevo/kapela">Капела Светог апостола Луке</a>
+                                <a class="nav-link" href="/me/kosijerevo/istorija">Историја</a>
+                                <a class="nav-link" href="/me/kosijerevo/dogadaji">Догађаји</a>
+                                <a class="nav-link" href="/me/kosijerevo/galereja">Галерија</a>
+                                <a class="nav-link" href="/me/kosijerevo/kontakt">Контакт</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-somina">
+                        <a class="nav-item nav-link dropdown-toggle text-right" data-toggle="collapse" href="#collapseSomina" role="button" aria-expanded="false" aria-controls="collapseSomina">
+                            Манастир Сомина
+                        </a>
+                        <div class="collapse my-collapse" id="collapseSomina">
+                            <div class="card card-body px-0 bg-transparent border-0 text-right">
+                                <a class="nav-link" href="/me/somina/igumen-i-monahinie">Игуман и монахиње</a>
+                                <a class="nav-link" href="/me/somina/crkva">Црква Преображења Господа</a>
+                                <a class="nav-link" href="/me/somina/istorija">Историjа</a>
+                                <a class="nav-link" href="/me/somina/dogadaji">Догађаји</a>
+                                <a class="nav-link" href="/me/somina/galereja">Галерија</a>
+                                <a class="nav-link" href="/me/somina/kontakt">Контакт</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                </div>
+
+            </div> <!-- container -->
+        </nav>
+    </header>
+
+    <main class="mb-3 mb-xl-5">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/js/jquery.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script>
+        jQuery('.nav-link').click(function (e) {
+            jQuery('.my-collapse').collapse('hide');
+        });
+    </script>
+    <script src="/js/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'slide',
+            once: false
+        });
+    </script>
+</body>
+
+</html>

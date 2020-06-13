@@ -59,3 +59,16 @@ h1 {
 h2 {
     font-size: 1.5rem;
 }
+
+.gallery img {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    height: 200px;
+}
+
+@media (min-width: 576px) {
+    .gallery img {
+        height: 300px;
+    }
+}
