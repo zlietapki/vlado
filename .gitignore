@@ -3,4 +3,7 @@ assets/
 instance/vlado.sqlite
 __pycache__
 1.py
-vlado/static/img/gallery*
+vlado/static/img/gallery_13/*
+vlado/static/img/gallery_27/*
+vlado/static/img/gallery_7/*
+vlado/static/img/gallery_21/*
