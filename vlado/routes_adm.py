@@ -32,6 +32,10 @@ def adm_article_id_handler(article_id):
 @app.route('/adm/7', methods=['GET', 'POST'])  # /ru/kosijerevo/galereja
 @app.route('/adm/27', methods=['GET', 'POST'])  # /me/somina/galereja
 @app.route('/adm/13', methods=['GET', 'POST'])  # /ru/somina/galereja
+@app.route('/adm/16', methods=['GET', 'POST'])  # /me/kosijerevo/igumen-i-monah
+@app.route('/adm/2', methods=['GET', 'POST'])  # /ru/kosijerevo/igumen-i-monah
+@app.route('/adm/23', methods=['GET', 'POST'])  # /me/somina/igumen-i-monahinie
+@app.route('/adm/9', methods=['GET', 'POST'])  # /ru/somina/igumen-i-monahinie
 def adm_gallery_handler():
     if request.method == 'POST':
         gallery_id = request.form['gallery_id']
