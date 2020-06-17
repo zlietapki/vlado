@@ -39,7 +39,7 @@ def adm_gallery_handler():
         _, file_ext = os.path.splitext(f.filename)
         if file_ext.lower() in ['.jpg', '.png']:
             f_name = secure_filename(f.filename)
-            full_name = f'vlado/static/img/gallery_{gallery_id}/{f_name}'
+            full_name = os.path.join(app.root_path, 'static', 'img', f'gallery_{gallery_id}', f_name)
             f.save(full_name)
 
     url = request.path
@@ -60,5 +60,7 @@ def adm_gallery_handler():
 @app.route('/adm/delete-image', methods=['POST'])
 def adm_delete_image_handler():
     img_path = request.form["image_path"]
-    os.unlink(f'vlado/static{img_path}')
+    img_path = re.sub(r'^/', '', img_path)
+    file_del = os.path.join(app.root_path, 'static', img_path)
+    os.unlink(file_del)
     return 'ok'

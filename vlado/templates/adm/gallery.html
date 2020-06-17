@@ -19,10 +19,10 @@
 
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">{{ article['url'] }}</h6>
-                    <form enctype="multipart/form-data" method="POST">
-                        <input id="upload_file" name="file" type="file">
-                        <input type="hidden" name="gallery_id" value="{{ article['id'] }}">
-                        <input id="upload_submit" type="submit" value="Upload" disabled>
+                    <form id="upload_form">
+                        <input name="file" id="upload_file" type="file">
+                        <input name="gallery_id" type="hidden" value="{{ article['id'] }}">
+                        <input id="upload_button" type="button" value="Upload" disabled onclick="upload_image()">
                     </form>
                 </div>
 
