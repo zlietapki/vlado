@@ -62,13 +62,15 @@
                         <h6 class="collapse-header">Serbian:</h6>
 
                         {% for page in me_pages %}
-                        <a class="collapse-item" href="/adm/{{ page['id'] }}">{{ page["url"] }}</a>
+                        {%      set page_href = '/adm/' ~ page['id'] %}
+                        <a class="collapse-item{% if path == page_href %} active{% endif %}" href="{{ page_href }}">{{ page["url"] }}</a>
                         {% endfor %}
 
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Russian:</h6>
                         {% for page in ru_pages %}
-                        <a class="collapse-item" href="/adm/{{ page['id'] }}">{{ page["url"] }}</a>
+                        {%      set page_href = '/adm/' ~ page['id'] %}
+                        <a class="collapse-item{% if path == page_href %} active{% endif %}" href="{{ page_href }}">{{ page["url"] }}</a>
                         {% endfor %}
                     </div>
                 </div>

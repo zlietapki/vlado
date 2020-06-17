@@ -42,10 +42,7 @@ def page_add_common(data, url):
     data['switch_url'] = get_switch_url(url)
 
 
-def adm_add_common(data):
-    pass
-    # me_pages
+def adm_add_common(data, url):
     data['me_pages'] = db.get_me_pages()
-
-    # ru_pages
     data['ru_pages'] = db.get_ru_pages()
+    data['path'] = url
