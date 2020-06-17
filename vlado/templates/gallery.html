@@ -32,7 +32,7 @@
         {%      set data_aos_delay = 'data-aos-delay="'|safe + aos_class[i][1] + '"'|safe %}
         {%  endif %}
         <div class="col-6 col-md-6 {{ aos_class[i][0] }} aos-init aos-animate" data-aos="{{ aos_class[i][2] }}" {{ data_aos_delay }}>
-            <a class="d-block photo-item" href="single.html">
+            <a class="d-block photo-item" href="{{ img }}" data-fancybox="gallery">
                 <img class="img-fluid" src="{{ img }}" alt="Image">
             </a>
         </div>

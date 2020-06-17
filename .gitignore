@@ -3,3 +3,4 @@ assets/
 instance/vlado.sqlite
 __pycache__
 1.py
+vlado/static/img/gallery*

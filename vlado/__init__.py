@@ -30,6 +30,8 @@ def create_app(test_config=None):
 
     db.init_app(app)
 
+    from . import routes_static
+    from . import routes_adm
     from . import routes
 
     app.add_url_rule('/', endpoint="index_handler")
