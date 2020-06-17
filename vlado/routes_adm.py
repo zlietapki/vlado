@@ -60,5 +60,5 @@ def adm_gallery_handler():
 @app.route('/adm/delete-image', methods=['POST'])
 def adm_delete_image_handler():
     img_path = request.form["image_path"]
-    os.unlink('vlado/static' + img_path)
+    os.unlink(f'vlado/static{img_path}')
     return 'ok'
