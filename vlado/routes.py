@@ -24,10 +24,10 @@ def index_handler(lang=None, _=None):
 def gallery_handler(_lang=None):
     url = request.path
     url2id = {
-        '/ru/kosijerevo/galereja': 27,
-        '/me/kosijerevo/galereja': 27,
+        '/ru/kosijerevo/galereja': 7,
+        '/me/kosijerevo/galereja': 21,
         '/ru/somina/galereja': 13,
-        '/me/somina/galereja': 13,
+        '/me/somina/galereja': 27,
     }
     gal_id = url2id[url]
     images = common.get_gallery_imgs(gal_id)
