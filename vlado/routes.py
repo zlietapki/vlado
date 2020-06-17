@@ -20,8 +20,18 @@ def index_handler(lang=None, _=None):
 
 
 @app.route('/<string:_lang>/kosijerevo/galereja')
+@app.route('/<string:_lang>/somina/galereja')
 def gallery_handler(_lang=None):
-    images = common.get_gallery_imgs(27)
+    url = request.path
+    url2id = {
+        '/ru/kosijerevo/galereja': 27,
+        '/me/kosijerevo/galereja': 27,
+        '/ru/somina/galereja': 13,
+        '/me/somina/galereja': 13,
+    }
+    gal_id = url2id[url]
+    images = common.get_gallery_imgs(gal_id)
+
     data = {
         'images': images,
     }
