@@ -55,14 +55,14 @@ def get_db():
 
 def get_me_pages():
     me_pages = get_db().cursor().execute(
-        'SELECT id, url FROM article WHERE lang="me"'
+        'SELECT id, url FROM article WHERE lang="me" ORDER BY url'
     ).fetchall()
     return me_pages
 
 
 def get_ru_pages():
     ru_pages = get_db().cursor().execute(
-        'SELECT id, url FROM article WHERE lang="ru"'
+        'SELECT id, url FROM article WHERE lang="ru" ORDER BY url'
     ).fetchall()
     return ru_pages
 

@@ -17,6 +17,7 @@ INSERT INTO article (url, lang)	VALUES
   ('/ru/kosijerevo/istorija', 'ru'),
   ('/ru/kosijerevo/dogadaji', 'ru'),
   ('/ru/kosijerevo/galereja', 'ru'),
+  ('/ru/kosijerevo/proizvodi', 'ru'),
   ('/ru/kosijerevo/kontakt', 'ru'),
 
   ('/ru/somina/igumen-i-monahinie', 'ru'),
@@ -24,6 +25,7 @@ INSERT INTO article (url, lang)	VALUES
   ('/ru/somina/istorija', 'ru'),
   ('/ru/somina/dogadaji', 'ru'),
   ('/ru/somina/galereja', 'ru'),
+  ('/ru/somina/proizvodi', 'ru'),
   ('/ru/somina/kontakt', 'ru'),
 
   ('/me', 'me'),
@@ -34,6 +36,7 @@ INSERT INTO article (url, lang)	VALUES
   ('/me/kosijerevo/istorija', 'me'),
   ('/me/kosijerevo/dogadaji', 'me'),
   ('/me/kosijerevo/galereja', 'me'),
+  ('/me/kosijerevo/proizvodi', 'me'),
   ('/me/kosijerevo/kontakt', 'me'),
 
   ('/me/somina/igumen-i-monahinie', 'me'),
@@ -41,5 +44,6 @@ INSERT INTO article (url, lang)	VALUES
   ('/me/somina/istorija', 'me'),
   ('/me/somina/dogadaji', 'me'),
   ('/me/somina/galereja', 'me'),
+  ('/me/somina/proizvodi', 'me'),
   ('/me/somina/kontakt', 'me');
 
