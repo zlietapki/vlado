@@ -9,7 +9,7 @@ from . import app, common, db
 def index_handler(lang=None, _=None):
     url = request.path
     if not lang:
-        lang = current_app.config.get('INDEX_LANG', 'me')
+        lang = current_app.config['INDEX_LANG']
         url = '/' + lang
     article = db.get_article_by_url(url)
     data = {
