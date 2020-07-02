@@ -1,4 +1,5 @@
 .vscode/
+.idea/
 assets/
 instance/vlado.sqlite
 __pycache__

@@ -31,13 +31,14 @@ def get_gallery_imgs(gallery_id):
     return imgs
 
 
-def page_add_common(data, url):
+def page_add_common(config, data, url):
     # lang
-    if re.search(r'/me/', url):
-        data['lang'] = 'me'
+    match = re.search(r'/(\w\w)', url)
+    if match:
+        lang = match.group(1)
     else:
-        data['lang'] = 'ru'
-
+        lang = config['INDEX_LANG']
+    data['lang'] = lang
     # switch_url
     data['switch_url'] = get_switch_url(url)
 

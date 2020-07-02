@@ -15,7 +15,7 @@ def index_handler(lang=None, _=None):
     data = {
         'article': article,
     }
-    common.page_add_common(data, request.path)
+    common.page_add_common(app.config, data, request.path)
     return render_template('page.html', **data)
 
 
@@ -41,5 +41,5 @@ def gallery_handler(_lang=None):
     data = {
         'images': images,
     }
-    common.page_add_common(data, request.path)
+    common.page_add_common(app.config, data, request.path)
     return render_template('gallery.html', **data)
