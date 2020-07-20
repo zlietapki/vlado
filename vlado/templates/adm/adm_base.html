@@ -147,9 +147,14 @@
     <script>
         tinymce.init({
             selector: '#mytextarea',
+            plugins: "image",
             height: 500,
             menubar: false,
-            toolbar: 'h1 h2 | styleselect | bold italic | alignleft aligncenter alignright alignjustify'
+            toolbar: 'h1 h2 | styleselect | bold italic | alignleft aligncenter alignright alignjustify | image',
+            image_list: "/adm/uploaded-images-list",
+            images_upload_url: '/adm/upload-image',
+            automatic_uploads: true,
+            relative_urls: false
         });
     </script>
     <!-- Custom scripts for all pages-->

@@ -1,6 +1,7 @@
 import os
 import os.path
 import re
+import json
 
 from flask import render_template, request, redirect
 from werkzeug.utils import secure_filename
@@ -12,6 +13,32 @@ from . import app, common, db
 def adm_index_handler():
     article = db.get_article_by_url('/me')
     return redirect(f'/adm/{article["id"]}')
+
+
+@app.route('/adm/upload-image', methods=['POST'])
+def upload_image():
+    if 'file' in request.files.keys():
+        file = request.files['file']
+        filename = secure_filename(file.filename)
+        local_filepath = os.path.join(app.root_path, 'static', 'img', 'upload', filename)
+        file.save(local_filepath)
+        web_filepath = os.path.join('/', 'img', 'upload', filename)
+
+    return json.dumps({'location': web_filepath})
+
+
+@app.route('/adm/uploaded-images-list')
+def uploaded_images_list():
+    upload = os.path.join(app.root_path, 'static', 'img', 'upload')
+    img_list = []
+    for file in os.listdir(upload):
+        if file == '_empty':
+            continue
+        img_list.append({
+            'title': file,
+            'value': os.path.join('/img/upload', file),
+        })
+    return json.dumps(img_list)
 
 
 @app.route('/adm/<int:article_id>', methods=['GET', 'POST'])
